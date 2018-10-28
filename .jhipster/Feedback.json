@@ -1,0 +1,20 @@
+{
+    "name": "Feedback",
+    "fields": [
+        {
+            "fieldName": "rank",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181028123502",
+    "javadoc": "Отзыв о выполнении задачи",
+    "entityTableName": "feedback",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

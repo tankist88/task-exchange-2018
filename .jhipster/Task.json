@@ -1,0 +1,60 @@
+{
+    "name": "Task",
+    "fields": [
+        {
+            "fieldName": "originalText",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "commaSeparatedKeywords",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "system",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subsystem",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "complexity",
+            "fieldType": "TaskComplexity",
+            "fieldValues": "LOW,MEDIUM,HARD"
+        },
+        {
+            "fieldName": "newIntegrations",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "modifyIntegrations",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "newPrintForms",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "modifyPrintForms",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "employee",
+            "otherEntityName": "employee",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181028123459",
+    "javadoc": "Задача",
+    "entityTableName": "task",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

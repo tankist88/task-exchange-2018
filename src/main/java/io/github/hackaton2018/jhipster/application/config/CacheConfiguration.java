@@ -40,6 +40,15 @@ public class CacheConfiguration {
             cm.createCache(io.github.hackaton2018.jhipster.application.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(io.github.hackaton2018.jhipster.application.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.hackaton2018.jhipster.application.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
+            cm.createCache(io.github.hackaton2018.jhipster.application.domain.Task.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.hackaton2018.jhipster.application.domain.Employee.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.hackaton2018.jhipster.application.domain.Employee.class.getName() + ".completedTasks", jcacheConfiguration);
+            cm.createCache(io.github.hackaton2018.jhipster.application.domain.Respond.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.hackaton2018.jhipster.application.domain.Feedback.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.hackaton2018.jhipster.application.domain.Request.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.hackaton2018.jhipster.application.domain.Request.class.getName() + ".responses", jcacheConfiguration);
+            cm.createCache(io.github.hackaton2018.jhipster.application.domain.Notification.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.hackaton2018.jhipster.application.domain.NotificationType.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
