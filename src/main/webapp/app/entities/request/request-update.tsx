@@ -144,30 +144,6 @@ export class RequestUpdate extends React.Component<IRequestUpdateProps, IRequest
                   />
                 </AvGroup>
                 <AvGroup>
-                  <Label id="customerIdLabel" for="customerId">
-                    Customer Id
-                  </Label>
-                  <AvField id="request-customerId" type="string" className="form-control" name="customerId" />
-                </AvGroup>
-                <AvGroup>
-                  <Label id="performerLabel" for="performer">
-                    Performer
-                  </Label>
-                  <AvField id="request-performer" type="string" className="form-control" name="performer" />
-                </AvGroup>
-                <AvGroup>
-                  <Label id="taskIdLabel" for="taskId">
-                    Task Id
-                  </Label>
-                  <AvField id="request-taskId" type="string" className="form-control" name="taskId" />
-                </AvGroup>
-                <AvGroup>
-                  <Label id="feedbackIdLabel" for="feedbackId">
-                    Feedback Id
-                  </Label>
-                  <AvField id="request-feedbackId" type="string" className="form-control" name="feedbackId" />
-                </AvGroup>
-                <AvGroup>
                   <Label id="statusLabel">Status</Label>
                   <AvInput
                     id="request-status"

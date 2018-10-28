@@ -37,10 +37,6 @@ export class Request extends React.Component<IRequestProps> {
                 <th>Create Time</th>
                 <th>Close Time</th>
                 <th>Change Time</th>
-                <th>Customer Id</th>
-                <th>Performer</th>
-                <th>Task Id</th>
-                <th>Feedback Id</th>
                 <th>Status</th>
                 <th>Customer</th>
                 <th>Performer</th>
@@ -66,10 +62,6 @@ export class Request extends React.Component<IRequestProps> {
                   <td>
                     <TextFormat type="date" value={request.changeTime} format={APP_DATE_FORMAT} />
                   </td>
-                  <td>{request.customerId}</td>
-                  <td>{request.performer}</td>
-                  <td>{request.taskId}</td>
-                  <td>{request.feedbackId}</td>
                   <td>{request.status}</td>
                   <td>{request.customer ? <Link to={`employee/${request.customer.id}`}>{request.customer.id}</Link> : ''}</td>
                   <td>{request.performer ? <Link to={`employee/${request.performer.id}`}>{request.performer.id}</Link> : ''}</td>

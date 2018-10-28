@@ -19,10 +19,6 @@ export interface IRequest {
   createTime?: Moment;
   closeTime?: Moment;
   changeTime?: Moment;
-  customerId?: number;
-  performer?: number;
-  taskId?: number;
-  feedbackId?: number;
   status?: RequestStatus;
   customer?: IEmployee;
   performer?: IEmployee;
