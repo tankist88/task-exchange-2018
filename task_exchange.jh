@@ -96,10 +96,6 @@ entity Request {
     createTime Instant,
     closeTime Instant,
     changeTime Instant,
-    customerId Long,
-    performer Long,
-    taskId Long,
-    feedbackId Long,
     status RequestStatus
 }
 
