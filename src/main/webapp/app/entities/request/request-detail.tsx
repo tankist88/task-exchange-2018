@@ -47,22 +47,6 @@ export class RequestDetail extends React.Component<IRequestDetailProps> {
               <TextFormat value={requestEntity.changeTime} type="date" format={APP_DATE_FORMAT} />
             </dd>
             <dt>
-              <span id="customerId">Customer Id</span>
-            </dt>
-            <dd>{requestEntity.customerId}</dd>
-            <dt>
-              <span id="performer">Performer</span>
-            </dt>
-            <dd>{requestEntity.performer}</dd>
-            <dt>
-              <span id="taskId">Task Id</span>
-            </dt>
-            <dd>{requestEntity.taskId}</dd>
-            <dt>
-              <span id="feedbackId">Feedback Id</span>
-            </dt>
-            <dd>{requestEntity.feedbackId}</dd>
-            <dt>
               <span id="status">Status</span>
             </dt>
             <dd>{requestEntity.status}</dd>

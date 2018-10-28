@@ -39,18 +39,6 @@ public class Request implements Serializable {
     @Column(name = "change_time")
     private Instant changeTime;
 
-    @Column(name = "customer_id")
-    private Long customerId;
-
-    @Column(name = "performer")
-    private Long performer;
-
-    @Column(name = "task_id")
-    private Long taskId;
-
-    @Column(name = "feedback_id")
-    private Long feedbackId;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private RequestStatus status;
@@ -116,58 +104,6 @@ public class Request implements Serializable {
 
     public void setChangeTime(Instant changeTime) {
         this.changeTime = changeTime;
-    }
-
-    public Long getCustomerId() {
-        return customerId;
-    }
-
-    public Request customerId(Long customerId) {
-        this.customerId = customerId;
-        return this;
-    }
-
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
-    }
-
-    public Long getPerformer() {
-        return performer;
-    }
-
-    public Request performer(Long performer) {
-        this.performer = performer;
-        return this;
-    }
-
-    public void setPerformer(Long performer) {
-        this.performer = performer;
-    }
-
-    public Long getTaskId() {
-        return taskId;
-    }
-
-    public Request taskId(Long taskId) {
-        this.taskId = taskId;
-        return this;
-    }
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
-    }
-
-    public Long getFeedbackId() {
-        return feedbackId;
-    }
-
-    public Request feedbackId(Long feedbackId) {
-        this.feedbackId = feedbackId;
-        return this;
-    }
-
-    public void setFeedbackId(Long feedbackId) {
-        this.feedbackId = feedbackId;
     }
 
     public RequestStatus getStatus() {
@@ -288,10 +224,6 @@ public class Request implements Serializable {
             ", createTime='" + getCreateTime() + "'" +
             ", closeTime='" + getCloseTime() + "'" +
             ", changeTime='" + getChangeTime() + "'" +
-            ", customerId=" + getCustomerId() +
-            ", performer=" + getPerformer() +
-            ", taskId=" + getTaskId() +
-            ", feedbackId=" + getFeedbackId() +
             ", status='" + getStatus() + "'" +
             "}";
     }

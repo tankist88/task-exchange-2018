@@ -51,18 +51,6 @@ public class RequestResourceIntTest {
     private static final Instant DEFAULT_CHANGE_TIME = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_CHANGE_TIME = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
-    private static final Long DEFAULT_CUSTOMER_ID = 1L;
-    private static final Long UPDATED_CUSTOMER_ID = 2L;
-
-    private static final Long DEFAULT_PERFORMER = 1L;
-    private static final Long UPDATED_PERFORMER = 2L;
-
-    private static final Long DEFAULT_TASK_ID = 1L;
-    private static final Long UPDATED_TASK_ID = 2L;
-
-    private static final Long DEFAULT_FEEDBACK_ID = 1L;
-    private static final Long UPDATED_FEEDBACK_ID = 2L;
-
     private static final RequestStatus DEFAULT_STATUS = RequestStatus.NEW;
     private static final RequestStatus UPDATED_STATUS = RequestStatus.PERFORMERS_REQUESTED;
 
@@ -107,10 +95,6 @@ public class RequestResourceIntTest {
             .createTime(DEFAULT_CREATE_TIME)
             .closeTime(DEFAULT_CLOSE_TIME)
             .changeTime(DEFAULT_CHANGE_TIME)
-            .customerId(DEFAULT_CUSTOMER_ID)
-            .performer(DEFAULT_PERFORMER)
-            .taskId(DEFAULT_TASK_ID)
-            .feedbackId(DEFAULT_FEEDBACK_ID)
             .status(DEFAULT_STATUS);
         return request;
     }
@@ -138,10 +122,6 @@ public class RequestResourceIntTest {
         assertThat(testRequest.getCreateTime()).isEqualTo(DEFAULT_CREATE_TIME);
         assertThat(testRequest.getCloseTime()).isEqualTo(DEFAULT_CLOSE_TIME);
         assertThat(testRequest.getChangeTime()).isEqualTo(DEFAULT_CHANGE_TIME);
-        assertThat(testRequest.getCustomerId()).isEqualTo(DEFAULT_CUSTOMER_ID);
-        assertThat(testRequest.getPerformer()).isEqualTo(DEFAULT_PERFORMER);
-        assertThat(testRequest.getTaskId()).isEqualTo(DEFAULT_TASK_ID);
-        assertThat(testRequest.getFeedbackId()).isEqualTo(DEFAULT_FEEDBACK_ID);
         assertThat(testRequest.getStatus()).isEqualTo(DEFAULT_STATUS);
     }
 
@@ -178,10 +158,6 @@ public class RequestResourceIntTest {
             .andExpect(jsonPath("$.[*].createTime").value(hasItem(DEFAULT_CREATE_TIME.toString())))
             .andExpect(jsonPath("$.[*].closeTime").value(hasItem(DEFAULT_CLOSE_TIME.toString())))
             .andExpect(jsonPath("$.[*].changeTime").value(hasItem(DEFAULT_CHANGE_TIME.toString())))
-            .andExpect(jsonPath("$.[*].customerId").value(hasItem(DEFAULT_CUSTOMER_ID.intValue())))
-            .andExpect(jsonPath("$.[*].performer").value(hasItem(DEFAULT_PERFORMER.intValue())))
-            .andExpect(jsonPath("$.[*].taskId").value(hasItem(DEFAULT_TASK_ID.intValue())))
-            .andExpect(jsonPath("$.[*].feedbackId").value(hasItem(DEFAULT_FEEDBACK_ID.intValue())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
     
@@ -199,10 +175,6 @@ public class RequestResourceIntTest {
             .andExpect(jsonPath("$.createTime").value(DEFAULT_CREATE_TIME.toString()))
             .andExpect(jsonPath("$.closeTime").value(DEFAULT_CLOSE_TIME.toString()))
             .andExpect(jsonPath("$.changeTime").value(DEFAULT_CHANGE_TIME.toString()))
-            .andExpect(jsonPath("$.customerId").value(DEFAULT_CUSTOMER_ID.intValue()))
-            .andExpect(jsonPath("$.performer").value(DEFAULT_PERFORMER.intValue()))
-            .andExpect(jsonPath("$.taskId").value(DEFAULT_TASK_ID.intValue()))
-            .andExpect(jsonPath("$.feedbackId").value(DEFAULT_FEEDBACK_ID.intValue()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
     }
 
@@ -230,10 +202,6 @@ public class RequestResourceIntTest {
             .createTime(UPDATED_CREATE_TIME)
             .closeTime(UPDATED_CLOSE_TIME)
             .changeTime(UPDATED_CHANGE_TIME)
-            .customerId(UPDATED_CUSTOMER_ID)
-            .performer(UPDATED_PERFORMER)
-            .taskId(UPDATED_TASK_ID)
-            .feedbackId(UPDATED_FEEDBACK_ID)
             .status(UPDATED_STATUS);
 
         restRequestMockMvc.perform(put("/api/requests")
@@ -248,10 +216,6 @@ public class RequestResourceIntTest {
         assertThat(testRequest.getCreateTime()).isEqualTo(UPDATED_CREATE_TIME);
         assertThat(testRequest.getCloseTime()).isEqualTo(UPDATED_CLOSE_TIME);
         assertThat(testRequest.getChangeTime()).isEqualTo(UPDATED_CHANGE_TIME);
-        assertThat(testRequest.getCustomerId()).isEqualTo(UPDATED_CUSTOMER_ID);
-        assertThat(testRequest.getPerformer()).isEqualTo(UPDATED_PERFORMER);
-        assertThat(testRequest.getTaskId()).isEqualTo(UPDATED_TASK_ID);
-        assertThat(testRequest.getFeedbackId()).isEqualTo(UPDATED_FEEDBACK_ID);
         assertThat(testRequest.getStatus()).isEqualTo(UPDATED_STATUS);
     }
 
