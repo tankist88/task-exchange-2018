@@ -35,6 +35,7 @@ export class Employee extends React.Component<IEmployeeProps> {
               <tr>
                 <th>ID</th>
                 <th>Role</th>
+                <th>Command Role</th>
                 <th>Username</th>
                 <th>Firstname</th>
                 <th>Secondname</th>
@@ -49,6 +50,7 @@ export class Employee extends React.Component<IEmployeeProps> {
                 <th>City</th>
                 <th>State Province</th>
                 <th>Rank</th>
+                <th>Request</th>
                 <th />
               </tr>
             </thead>
@@ -61,6 +63,7 @@ export class Employee extends React.Component<IEmployeeProps> {
                     </Button>
                   </td>
                   <td>{employee.role}</td>
+                  <td>{employee.commandRole}</td>
                   <td>{employee.username}</td>
                   <td>{employee.firstname}</td>
                   <td>{employee.secondname}</td>
@@ -75,6 +78,7 @@ export class Employee extends React.Component<IEmployeeProps> {
                   <td>{employee.city}</td>
                   <td>{employee.stateProvince}</td>
                   <td>{employee.rank}</td>
+                  <td>{employee.request ? <Link to={`request/${employee.request.id}`}>{employee.request.id}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${employee.id}`} color="info" size="sm">

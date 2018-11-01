@@ -3,6 +3,7 @@ import { IEmployee } from 'app/shared/model//employee.model';
 import { ITask } from 'app/shared/model//task.model';
 import { IFeedback } from 'app/shared/model//feedback.model';
 import { IRespond } from 'app/shared/model//respond.model';
+import { IPerformers } from 'app/shared/model//performers.model';
 
 export const enum RequestStatus {
   NEW = 'NEW',
@@ -21,10 +22,11 @@ export interface IRequest {
   changeTime?: Moment;
   status?: RequestStatus;
   customer?: IEmployee;
-  performer?: IEmployee;
   task?: ITask;
   feedback?: IFeedback;
   responses?: IRespond[];
+  performers?: IPerformers[];
+  performers?: IEmployee[];
 }
 
 export const defaultValue: Readonly<IRequest> = {};

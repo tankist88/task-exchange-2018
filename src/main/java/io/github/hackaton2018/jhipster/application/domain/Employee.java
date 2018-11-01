@@ -1,6 +1,7 @@
 package io.github.hackaton2018.jhipster.application.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModel;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -13,6 +14,8 @@ import java.util.Set;
 import java.util.Objects;
 
 import io.github.hackaton2018.jhipster.application.domain.enumeration.EmployeeRole;
+
+import io.github.hackaton2018.jhipster.application.domain.enumeration.CommandRole;
 
 /**
  * Сотрудник организации,
@@ -33,6 +36,10 @@ public class Employee implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "jhi_role")
     private EmployeeRole role;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "command_role")
+    private CommandRole commandRole;
 
     @Column(name = "username")
     private String username;
@@ -79,6 +86,10 @@ public class Employee implements Serializable {
     @OneToMany(mappedBy = "performer")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Task> completedTasks = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties("performers")
+    private Request request;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -99,6 +110,19 @@ public class Employee implements Serializable {
 
     public void setRole(EmployeeRole role) {
         this.role = role;
+    }
+
+    public CommandRole getCommandRole() {
+        return commandRole;
+    }
+
+    public Employee commandRole(CommandRole commandRole) {
+        this.commandRole = commandRole;
+        return this;
+    }
+
+    public void setCommandRole(CommandRole commandRole) {
+        this.commandRole = commandRole;
     }
 
     public String getUsername() {
@@ -307,6 +331,19 @@ public class Employee implements Serializable {
     public void setCompletedTasks(Set<Task> tasks) {
         this.completedTasks = tasks;
     }
+
+    public Request getRequest() {
+        return request;
+    }
+
+    public Employee request(Request request) {
+        this.request = request;
+        return this;
+    }
+
+    public void setRequest(Request request) {
+        this.request = request;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -334,6 +371,7 @@ public class Employee implements Serializable {
         return "Employee{" +
             "id=" + getId() +
             ", role='" + getRole() + "'" +
+            ", commandRole='" + getCommandRole() + "'" +
             ", username='" + getUsername() + "'" +
             ", firstname='" + getFirstname() + "'" +
             ", secondname='" + getSecondname() + "'" +

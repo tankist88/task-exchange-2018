@@ -175,19 +175,6 @@ export class RequestUpdate extends React.Component<IRequestUpdateProps, IRequest
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
-                  <Label for="performer.id">Performer</Label>
-                  <AvInput id="request-performer" type="select" className="form-control" name="performer.id">
-                    <option value="" key="0" />
-                    {employees
-                      ? employees.map(otherEntity => (
-                          <option value={otherEntity.id} key={otherEntity.id}>
-                            {otherEntity.id}
-                          </option>
-                        ))
-                      : null}
-                  </AvInput>
-                </AvGroup>
-                <AvGroup>
                   <Label for="task.id">Task</Label>
                   <AvInput id="request-task" type="select" className="form-control" name="task.id">
                     <option value="" key="0" />

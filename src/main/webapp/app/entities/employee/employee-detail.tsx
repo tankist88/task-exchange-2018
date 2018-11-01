@@ -33,6 +33,10 @@ export class EmployeeDetail extends React.Component<IEmployeeDetailProps> {
             </dt>
             <dd>{employeeEntity.role}</dd>
             <dt>
+              <span id="commandRole">Command Role</span>
+            </dt>
+            <dd>{employeeEntity.commandRole}</dd>
+            <dt>
               <span id="username">Username</span>
             </dt>
             <dd>{employeeEntity.username}</dd>
@@ -88,6 +92,8 @@ export class EmployeeDetail extends React.Component<IEmployeeDetailProps> {
               <span id="rank">Rank</span>
             </dt>
             <dd>{employeeEntity.rank}</dd>
+            <dt>Request</dt>
+            <dd>{employeeEntity.request ? employeeEntity.request.id : ''}</dd>
           </dl>
           <Button tag={Link} to="/entity/employee" replace color="info">
             <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
