@@ -33,6 +33,10 @@ export class EmployeeDetail extends React.Component<IEmployeeDetailProps> {
             </dt>
             <dd>{employeeEntity.role}</dd>
             <dt>
+              <span id="commandRole">Command Role</span>
+            </dt>
+            <dd>{employeeEntity.commandRole}</dd>
+            <dt>
               <span id="username">Username</span>
             </dt>
             <dd>{employeeEntity.username}</dd>

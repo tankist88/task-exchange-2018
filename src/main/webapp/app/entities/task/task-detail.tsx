@@ -49,6 +49,10 @@ export class TaskDetail extends React.Component<ITaskDetailProps> {
             </dt>
             <dd>{taskEntity.complexity}</dd>
             <dt>
+              <span id="resourcesCount">Resources Count</span>
+            </dt>
+            <dd>{taskEntity.resourcesCount}</dd>
+            <dt>
               <span id="newIntegrations">New Integrations</span>
             </dt>
             <dd>{taskEntity.newIntegrations ? 'true' : 'false'}</dd>

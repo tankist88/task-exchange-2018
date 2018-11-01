@@ -35,6 +35,7 @@ export class Employee extends React.Component<IEmployeeProps> {
               <tr>
                 <th>ID</th>
                 <th>Role</th>
+                <th>Command Role</th>
                 <th>Username</th>
                 <th>Firstname</th>
                 <th>Secondname</th>
@@ -61,6 +62,7 @@ export class Employee extends React.Component<IEmployeeProps> {
                     </Button>
                   </td>
                   <td>{employee.role}</td>
+                  <td>{employee.commandRole}</td>
                   <td>{employee.username}</td>
                   <td>{employee.firstname}</td>
                   <td>{employee.secondname}</td>
