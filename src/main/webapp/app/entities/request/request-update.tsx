@@ -25,7 +25,6 @@ export interface IRequestUpdateProps extends StateProps, DispatchProps, RouteCom
 export interface IRequestUpdateState {
   isNew: boolean;
   customerId: string;
-  performerId: string;
   taskId: string;
   feedbackId: string;
 }
@@ -35,7 +34,6 @@ export class RequestUpdate extends React.Component<IRequestUpdateProps, IRequest
     super(props);
     this.state = {
       customerId: '0',
-      performerId: '0',
       taskId: '0',
       feedbackId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
@@ -157,6 +155,10 @@ export class RequestUpdate extends React.Component<IRequestUpdateProps, IRequest
                     <option value="PERFORMERS_ACCEPTED">PERFORMERS_ACCEPTED</option>
                     <option value="PERFORMERS_SELECTED">PERFORMERS_SELECTED</option>
                     <option value="PERFORMER_CONFIRMED">PERFORMER_CONFIRMED</option>
+                    <option value="ANALYSIS">ANALYSIS</option>
+                    <option value="APPROVAL">APPROVAL</option>
+                    <option value="DEVELOPMENT">DEVELOPMENT</option>
+                    <option value="TESTING">TESTING</option>
                     <option value="IN_PROGRESS">IN_PROGRESS</option>
                     <option value="DONE">DONE</option>
                   </AvInput>
@@ -164,19 +166,6 @@ export class RequestUpdate extends React.Component<IRequestUpdateProps, IRequest
                 <AvGroup>
                   <Label for="customer.id">Customer</Label>
                   <AvInput id="request-customer" type="select" className="form-control" name="customer.id">
-                    <option value="" key="0" />
-                    {employees
-                      ? employees.map(otherEntity => (
-                          <option value={otherEntity.id} key={otherEntity.id}>
-                            {otherEntity.id}
-                          </option>
-                        ))
-                      : null}
-                  </AvInput>
-                </AvGroup>
-                <AvGroup>
-                  <Label for="performer.id">Performer</Label>
-                  <AvInput id="request-performer" type="select" className="form-control" name="performer.id">
                     <option value="" key="0" />
                     {employees
                       ? employees.map(otherEntity => (

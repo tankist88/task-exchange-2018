@@ -99,6 +99,24 @@ export class EmployeeUpdate extends React.Component<IEmployeeUpdateProps, IEmplo
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
+                  <Label id="commandRoleLabel">Command Role</Label>
+                  <AvInput
+                    id="employee-commandRole"
+                    type="select"
+                    className="form-control"
+                    name="commandRole"
+                    value={(!isNew && employeeEntity.commandRole) || 'DEVELOPER'}
+                  >
+                    <option value="DEVELOPER">DEVELOPER</option>
+                    <option value="SYSTEM_ANALYST">SYSTEM_ANALYST</option>
+                    <option value="BUSINESS_ANALYST">BUSINESS_ANALYST</option>
+                    <option value="PRODUCT_OWNER">PRODUCT_OWNER</option>
+                    <option value="DEVOPS_ENGINEER">DEVOPS_ENGINEER</option>
+                    <option value="HAND_TESTER">HAND_TESTER</option>
+                    <option value="AUTO_TESTER">AUTO_TESTER</option>
+                  </AvInput>
+                </AvGroup>
+                <AvGroup>
                   <Label id="usernameLabel" for="username">
                     Username
                   </Label>

@@ -52,8 +52,6 @@ export class RequestDetail extends React.Component<IRequestDetailProps> {
             <dd>{requestEntity.status}</dd>
             <dt>Customer</dt>
             <dd>{requestEntity.customer ? requestEntity.customer.id : ''}</dd>
-            <dt>Performer</dt>
-            <dd>{requestEntity.performer ? requestEntity.performer.id : ''}</dd>
             <dt>Task</dt>
             <dd>{requestEntity.task ? requestEntity.task.id : ''}</dd>
             <dt>Feedback</dt>

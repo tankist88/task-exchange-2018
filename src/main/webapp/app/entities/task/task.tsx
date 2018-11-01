@@ -39,6 +39,7 @@ export class Task extends React.Component<ITaskProps> {
                 <th>System</th>
                 <th>Subsystem</th>
                 <th>Complexity</th>
+                <th>Resources Count</th>
                 <th>New Integrations</th>
                 <th>Modify Integrations</th>
                 <th>New Print Forms</th>
@@ -60,6 +61,7 @@ export class Task extends React.Component<ITaskProps> {
                   <td>{task.system}</td>
                   <td>{task.subsystem}</td>
                   <td>{task.complexity}</td>
+                  <td>{task.resourcesCount}</td>
                   <td>{task.newIntegrations ? 'true' : 'false'}</td>
                   <td>{task.modifyIntegrations ? 'true' : 'false'}</td>
                   <td>{task.newPrintForms ? 'true' : 'false'}</td>
