@@ -39,7 +39,6 @@ export class Request extends React.Component<IRequestProps> {
                 <th>Change Time</th>
                 <th>Status</th>
                 <th>Customer</th>
-                <th>Performer</th>
                 <th>Task</th>
                 <th>Feedback</th>
                 <th />
@@ -64,7 +63,6 @@ export class Request extends React.Component<IRequestProps> {
                   </td>
                   <td>{request.status}</td>
                   <td>{request.customer ? <Link to={`employee/${request.customer.id}`}>{request.customer.id}</Link> : ''}</td>
-                  <td>{request.performer ? <Link to={`employee/${request.performer.id}`}>{request.performer.id}</Link> : ''}</td>
                   <td>{request.task ? <Link to={`task/${request.task.id}`}>{request.task.id}</Link> : ''}</td>
                   <td>{request.feedback ? <Link to={`feedback/${request.feedback.id}`}>{request.feedback.id}</Link> : ''}</td>
                   <td className="text-right">

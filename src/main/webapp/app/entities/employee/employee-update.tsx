@@ -8,6 +8,8 @@ import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipste
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
+import { IRequest } from 'app/shared/model/request.model';
+import { getEntities as getRequests } from 'app/entities/request/request.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './employee.reducer';
 import { IEmployee } from 'app/shared/model/employee.model';
 // tslint:disable-next-line:no-unused-variable
@@ -18,12 +20,14 @@ export interface IEmployeeUpdateProps extends StateProps, DispatchProps, RouteCo
 
 export interface IEmployeeUpdateState {
   isNew: boolean;
+  requestId: string;
 }
 
 export class EmployeeUpdate extends React.Component<IEmployeeUpdateProps, IEmployeeUpdateState> {
   constructor(props) {
     super(props);
     this.state = {
+      requestId: '0',
       isNew: !this.props.match.params || !this.props.match.params.id
     };
   }
@@ -40,6 +44,8 @@ export class EmployeeUpdate extends React.Component<IEmployeeUpdateProps, IEmplo
     } else {
       this.props.getEntity(this.props.match.params.id);
     }
+
+    this.props.getRequests();
   }
 
   saveEntity = (event, errors, values) => {
@@ -63,7 +69,7 @@ export class EmployeeUpdate extends React.Component<IEmployeeUpdateProps, IEmplo
   };
 
   render() {
-    const { employeeEntity, loading, updating } = this.props;
+    const { employeeEntity, requests, loading, updating } = this.props;
     const { isNew } = this.state;
 
     return (
@@ -96,6 +102,24 @@ export class EmployeeUpdate extends React.Component<IEmployeeUpdateProps, IEmplo
                   >
                     <option value="PERFORMER">PERFORMER</option>
                     <option value="CUSTOMER">CUSTOMER</option>
+                  </AvInput>
+                </AvGroup>
+                <AvGroup>
+                  <Label id="commandRoleLabel">Command Role</Label>
+                  <AvInput
+                    id="employee-commandRole"
+                    type="select"
+                    className="form-control"
+                    name="commandRole"
+                    value={(!isNew && employeeEntity.commandRole) || 'DEVELOPER'}
+                  >
+                    <option value="DEVELOPER">DEVELOPER</option>
+                    <option value="SYSTEM_ANALYST">SYSTEM_ANALYST</option>
+                    <option value="BUSINESS_ANALYST">BUSINESS_ANALYST</option>
+                    <option value="PRODUCT_OWNER">PRODUCT_OWNER</option>
+                    <option value="DEVOPS_ENGINEER">DEVOPS_ENGINEER</option>
+                    <option value="HAND_TESTER">HAND_TESTER</option>
+                    <option value="AUTO_TESTER">AUTO_TESTER</option>
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
@@ -182,6 +206,19 @@ export class EmployeeUpdate extends React.Component<IEmployeeUpdateProps, IEmplo
                   </Label>
                   <AvField id="employee-rank" type="string" className="form-control" name="rank" />
                 </AvGroup>
+                <AvGroup>
+                  <Label for="request.id">Request</Label>
+                  <AvInput id="employee-request" type="select" className="form-control" name="request.id">
+                    <option value="" key="0" />
+                    {requests
+                      ? requests.map(otherEntity => (
+                          <option value={otherEntity.id} key={otherEntity.id}>
+                            {otherEntity.id}
+                          </option>
+                        ))
+                      : null}
+                  </AvInput>
+                </AvGroup>
                 <Button tag={Link} id="cancel-save" to="/entity/employee" replace color="info">
                   <FontAwesomeIcon icon="arrow-left" />&nbsp;
                   <span className="d-none d-md-inline">Back</span>
@@ -200,6 +237,7 @@ export class EmployeeUpdate extends React.Component<IEmployeeUpdateProps, IEmplo
 }
 
 const mapStateToProps = (storeState: IRootState) => ({
+  requests: storeState.request.entities,
   employeeEntity: storeState.employee.entity,
   loading: storeState.employee.loading,
   updating: storeState.employee.updating,
@@ -207,6 +245,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 });
 
 const mapDispatchToProps = {
+  getRequests,
   getEntity,
   updateEntity,
   createEntity,

@@ -7,6 +7,11 @@
             "fieldValues": "PERFORMER,CUSTOMER"
         },
         {
+            "fieldName": "commandRole",
+            "fieldType": "CommandRole",
+            "fieldValues": "DEVELOPER,SYSTEM_ANALYST,BUSINESS_ANALYST,PRODUCT_OWNER,DEVOPS_ENGINEER,HAND_TESTER,AUTO_TESTER"
+        },
+        {
             "fieldName": "username",
             "fieldType": "String"
         },
@@ -69,6 +74,12 @@
             "relationshipName": "completedTasks",
             "otherEntityName": "task",
             "otherEntityRelationshipName": "performer"
+        },
+        {
+            "relationshipName": "request",
+            "otherEntityName": "request",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "changelogDate": "20181028131148",
