@@ -31,6 +31,16 @@ enum TaskComplexity {
     HARD
 }
 
+enum CommandRole {
+	DEVELOPER,
+    SYSTEM_ANALYST,
+    BUSINESS_ANALYST,
+    PRODUCT_OWNER,
+    DEVOPS_ENGINEER,
+    HAND_TESTER,
+    AUTO_TESTER
+}
+
 /**
  * Задача
  */
@@ -54,6 +64,7 @@ entity Task {
 entity Employee {
 	id Long,
     role EmployeeRole,
+    commandRole CommandRole,
     username String,
     firstname String,
     secondname String,
@@ -70,7 +81,9 @@ entity Employee {
     rank Integer
 }
 
-
+entity Performers {
+	id Long
+}
 
 /**
  * Отклик
@@ -128,10 +141,10 @@ enum NotificationTypeCode {
 
 relationship OneToOne {
 	Request{customer} to Employee,
-    Request{performer} to Employee,
     Request{task} to Task{request},
     Request{feedback} to Feedback{request},
     Respond{employee} to Employee,
+    Performers{employee} to Employee,
     Notification{request} to Request,
     Notification{employee} to Employee,
     Notification{type} to NotificationType
@@ -139,5 +152,7 @@ relationship OneToOne {
 
 relationship OneToMany {
 	Request{responses} to Respond{request},
-    Employee{completedTasks} to Task{performer}
+    Request{performers} to Performers{request},
+    Employee{completedTasks} to Task{performer},
+    Request{performer} to Employee
 }
